@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Registration</title>
+    </head>
+    <body>
+        <!-- Style is being used to style the text being flashed when there is an error or success  -->
+    <style>
+        .error {
+              color: red;
+            }
+        .success{
+              color: green;
+            }
+    </style>
+    <!-- A loop for flash to display the messages from the process function -->
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <!-- flash with category is being used, the (___, this is the category) -->
+                    <p class = {{ category }}>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h1>Registration Form</h1>
+        <!-- routes to the process route -->
+        <form action="/process" method="post">
+            <p>Email: <input type="text" name="Email"></p>
+            <p>First Name: <input type="text" name="First Name"></p>
+            <p>Last Name: <input type="text" name="Last Name"></p>
+            <p>Password: <input type="password" name="Password"></p>
+            <p>Confirm Password: <input type="password" name="Confirm Password"></p>
+            <p><input type="submit" name="submit" value="Submit"></p>
+        </form>
+    </body>
+</html>

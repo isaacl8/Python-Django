@@ -1,0 +1,4 @@
+1. What query would you run to get the total revenue for March of 2012?
+SELECT sum(billing.amount)
+FROM billing
+WHERE MONTH(charged_datetime) = 3 AND YEAR(charged_datetime) = 2012

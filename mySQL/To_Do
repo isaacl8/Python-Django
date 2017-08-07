@@ -1,0 +1,4 @@
+Open MAMP and SQLWorkbench
+Select preference to check port
+Select to make a connection, name it and check to make sure the port is the same as MAMP port.
+USE (databasename)

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Wish</title>
+    </head>
+    <body>
+        <a href="/dashboard">Home</a>
+        <br>
+        <a href="/">Log Out</a>
+        <br>
+        {% for wish in wishs %}
+        <h1>{{wish.name}}!</h1>
+        {% endfor %}
+        <br>
+        <p>User who added this product/item under their wish list:</p>
+        {% for user in user %}
+        <p>{{ user.name }}</p>
+        {% endfor %}
+
+
+
+        <h1>Create a New Wish List Item</h1>
+        <form action="/create/" method="post">
+        {% csrf_token %}
+        Item/Product: <input type="text" name="item">
+        <input type="submit" value="Add">
+        </form>
+
+    </body>
+</html>

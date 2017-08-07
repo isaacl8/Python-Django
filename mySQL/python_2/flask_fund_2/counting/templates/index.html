@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Counting Game</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mystyle.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <h1>Welcome to the Great Number Game!</h1>
+        <p>I am thinking of a number between 1 and 100</p>
+        <p>Take a guess</p>
+
+        <!-- will go to @app.route '/process' -->
+        <form action='/process' method="post">
+            <input type="text" name="num">
+
+            <div class="box">
+                <p>{{session['text']}}</p>
+            </div>
+
+            <input type="submit" value="submit">
+        </form>
+
+        <!-- will go to @app.route '/reset' -->
+        <form action="/reset" method="post">
+            <input type="submit" value="Reset Game">
+        </form>
+
+    </div>
+</body>
+
+</html>

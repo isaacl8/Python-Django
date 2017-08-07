@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    {% for user in users %}
+    <p>Hello{{user.name}}!</p>
+    {% endfor %}
+    <br>
+    <a href="/">Log Out</a>
+    <br>
+    <h5>Your Wish List!</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Added by</th>
+                <th>Dated Added</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wishs in wish %}
+            <tr>
+                <td><a href="/wish_items/{{wish.id}}">{{wish.item}}</a></td>
+                <td>{{wish.user__name|date:"m/d/o g:iA" }}</td>
+                <td>{{wish.added|date:"m/d/o g:iA" }}</td>
+                <td></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h5>Other User's Wish-List</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Added by</th>
+                <th>Dated Added</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wish in wishs %}
+            <tr>
+                <td><a href="/wish_items/{{wish.id}}">{{wish.item}}</a></td>
+                <td>{{wish.user__name|date:"m/d/o g:iA" }}</td>
+                <td>{{wish.added|date:"m/d/o g:iA" }}</td>
+                <td></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="wish_items/create">Add Item</a>
+</body>
+
+</html>

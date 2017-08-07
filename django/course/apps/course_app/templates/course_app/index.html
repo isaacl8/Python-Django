@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Books</title>
+</head>
+<h1></h1>
+
+<body>
+    <h3>Courses</h3>
+    <form action="/process/" method="POST">
+        {% csrf_token %}
+        <p>Name: <input type="text" name="name"></p>
+        <p>Description: <input type="text" name="description"></p>
+        <input type="submit" name="submit" value="Add">
+    </form>
+
+    <table style="width:100%">
+        <tr>
+            <th>Course Name</th>
+            <th>Description</th>
+            <th>Date Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{course.name}}</td>
+            <td>{{course.description}}</td>
+            <td>{{course.date_added}}</td>
+            <td><a href="/destroy/{{course.id}}">Remove</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+
+</html>
